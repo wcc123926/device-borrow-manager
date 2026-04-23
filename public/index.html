@@ -75,12 +75,17 @@
 
     .main-content {
       display: grid;
-      grid-template-columns: 1fr 350px;
+      grid-template-columns: 1fr;
       gap: 20px;
     }
 
+    .main-content.form-visible {
+      grid-template-columns: 1fr 350px;
+    }
+
     @media (max-width: 1024px) {
-      .main-content {
+      .main-content,
+      .main-content.form-visible {
         grid-template-columns: 1fr;
       }
     }
@@ -293,6 +298,11 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
       position: sticky;
       top: 20px;
+      display: none;
+    }
+
+    .main-content.form-visible .form-section {
+      display: block;
     }
 
     .form-section h3 {
@@ -781,7 +791,8 @@
       }).join('');
     }
 
-    function resetForm() {
+    function hideForm() {
+      document.querySelector('.main-content').classList.remove('form-visible');
       currentEditDevice = null;
       currentFormMode = 'add';
       document.getElementById('form-title').textContent = '添加设备';
@@ -797,8 +808,13 @@
       document.querySelector('.form-tab[data-tab="info"]').classList.add('active');
     }
 
+    function resetForm() {
+      hideForm();
+    }
+
     function showAddForm() {
-      resetForm();
+      hideForm();
+      document.querySelector('.main-content').classList.add('form-visible');
       document.getElementById('device-status').value = '可用 (新设备)';
     }
 
@@ -808,6 +824,7 @@
         currentEditDevice = await response.json();
         currentFormMode = 'edit';
         
+        document.querySelector('.main-content').classList.add('form-visible');
         document.getElementById('form-title').textContent = '编辑设备';
         document.getElementById('form-tabs').style.display = 'flex';
         
@@ -817,6 +834,13 @@
         document.getElementById('device-remark').value = currentEditDevice.remark || '';
         
         renderBorrowForm();
+        
+        document.querySelectorAll('.form-tab').forEach(tab => {
+          tab.classList.remove('active');
+        });
+        document.querySelector('.form-tab[data-tab="info"]').classList.add('active');
+        document.getElementById('tab-info').style.display = 'block';
+        document.getElementById('tab-borrow').style.display = 'none';
       } catch (error) {
         showToast('获取设备信息失败', 'error');
       }

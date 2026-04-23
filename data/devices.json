@@ -1,0 +1,77 @@
+{
+  "devices": [
+    {
+      "id": 1,
+      "name": "笔记本电脑",
+      "code": "NB-001",
+      "status": "已借出",
+      "borrower": "张三",
+      "borrowTime": "2026-04-20T08:18:06.703Z",
+      "dueTime": "2026-04-22",
+      "remark": "用于项目开发",
+      "createdAt": "2026-04-20T08:17:15.242Z",
+      "updatedAt": "2026-04-20T08:18:06.703Z"
+    },
+    {
+      "id": 2,
+      "name": "投影仪",
+      "code": "PRJ-001",
+      "status": "已借出",
+      "borrower": "李四",
+      "borrowTime": "2026-04-22T10:30:00.000Z",
+      "dueTime": "2026-04-25",
+      "remark": "会议室使用",
+      "createdAt": "2026-04-21T09:00:00.000Z",
+      "updatedAt": "2026-04-22T10:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "平板电脑",
+      "code": "PAD-001",
+      "status": "可用",
+      "borrower": null,
+      "borrowTime": null,
+      "dueTime": null,
+      "remark": "iPad Pro",
+      "createdAt": "2026-04-21T10:00:00.000Z",
+      "updatedAt": "2026-04-21T10:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "无线麦克风",
+      "code": "MIC-001",
+      "status": "可用",
+      "borrower": null,
+      "borrowTime": null,
+      "dueTime": null,
+      "remark": null,
+      "createdAt": "2026-04-21T11:00:00.000Z",
+      "updatedAt": "2026-04-21T11:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "笔记本电脑",
+      "code": "NB-002",
+      "status": "已借出",
+      "borrower": "王五",
+      "borrowTime": "2026-04-18T14:00:00.000Z",
+      "dueTime": "2026-04-20",
+      "remark": "开发测试用",
+      "createdAt": "2026-04-18T13:00:00.000Z",
+      "updatedAt": "2026-04-18T14:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "显示器",
+      "code": "MON-001",
+      "status": "可用",
+      "borrower": null,
+      "borrowTime": null,
+      "dueTime": null,
+      "remark": "4K 27寸",
+      "createdAt": "2026-04-22T09:00:00.000Z",
+      "updatedAt": "2026-04-22T09:00:00.000Z"
+    }
+  ],
+  "nextId": 7
+}
